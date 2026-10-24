@@ -1,0 +1,14 @@
+SHA-256 of the files this workaround was built and tested with
+==============================================================
+
+KCDC 1.7.1
+  client\KCDCClient.dll                  28949D27AD5FC508B2FAA1FFA430E83A8401445FD3142C1469B936F7A38636FC   (input, must match)
+  client\KCDCLauncher.exe                852D89B22906AADE2E9325BD58857028C7F5D59E11E411CCC8ADCF125E436665
+  client\KCDCClient_gog.dll (generated)  4CAFE06C773C893F68DEA9D5FDF0D29588CAA12A185953AAEAB3839134453BB4   (install.ps1 verifies this)
+
+Kingdom Come: Deliverance II, GOG build 59798195747257766, version 1.5.6.0, Bin\Win64MasterMasterGogPGO
+  KingdomCome.exe                        2E4C3189F32CC8D2A1A768EAF54754079D3EC90DAC563B392DBD6CAD9EA4E63B
+  WHGame.dll                             C59754B925C669B26C46723EB6C19C3217ABA2FAC94A1AD2D8BCC229D9363870
+
+Check yours:
+  Get-FileHash <file> -Algorithm SHA256

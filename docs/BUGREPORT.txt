@@ -1,0 +1,28 @@
+=== 1. Crash on GOG build (client) ================================================================
+
+KCDC 1.7.1, GOG build (KCD2 1.5.6.0, Win64MasterMasterGogPGO): crash 0xC0000005 in InitClient
+(KCDCClient.dll+0x6AFE7B). The signature scan returns an empty vector and the first result is
+dereferenced without a check. 3 of 983 patterns are not found in the GOG WHGame.dll:
+ - site 0x6CA336: 48 89 5C 24 08 55 56 57 48 83 EC 20 48 8B F1 FF 15 ? ? ? ? 39 05 ? ? ? ? 74 0F 32 C0
+   -> GOG has "0F 85" instead of "74 0F" (function at WHGame.dll+0x6C5C90)
+ - site 0x6D1E63: 40 55 53 56 57 41 56 48 8B EC 48 81 EC 80 00 00 00 48 8B F9 B2 0B 48 8B 89 30 03 00 00
+   -> GOG has 55 53 57 41 56 41 57 as push order (WHGame.dll+0xF6A295)
+ - site 0x6D4495: thunk pattern with CC 40 53 padding (result seems unused)
+
+Suggestions: (a) check the result of the scan before dereferencing and log which pattern failed,
+(b) add the GOG variants of the three patterns.
+
+WHGame.dll SHA-256 (GOG 1.5.6.0): C59754B925C669B26C46723EB6C19C3217ABA2FAC94A1AD2D8BCC229D9363870
+
+=== 2. Identity for non-Steam players (feature request) ==============================================
+
+With the client fixed, a GOG player reaches the server, passes the build verification, downloads
+resources and loads the level. A server resource then kicks the player because connection.steamId is
+empty ("SteamID64 fehlt. Bitte über Steam verbinden."). GOG has no Steam id and no Epic id.
+Request: some identity for GOG players (e.g. GOG Galaxy account id), or documentation for server
+owners on how to admit players without a Steam id (name: whitelist entries, Epic/GOG ids).
+
+=== 3. Note ===========================================================================================
+
+The client used for the report ran a locally modified copy of KCDCClient.dll (only the three patterns
+above changed, KCDCClient_gog.dll via mod_dll_name). The original file was untouched.
