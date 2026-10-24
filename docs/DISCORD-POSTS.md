@@ -21,6 +21,7 @@ Crash: 0xC0000005 at KCDCClient.dll+0x6AFE7B right after "Game module loaded". T
 With only these 3 patterns changed (local copy via mod_dll_name, original DLL untouched) the client reaches the main menu, connects, passes build verification and loads resources.
 Suggestions: null-check + log the failing pattern; add the GOG variants.
 
+Tested on one PC only (Windows 11) - I cannot say how it behaves elsewhere.
 Repro: GOG install, select Win64MasterMasterGogPGO\KingdomCome.exe in the launcher, start. Logs: client\logs\KCDC.log. Details, hashes and tools: https://github.com/Errorism1/KCDC-GOG-Fix (docs/TECHNICAL.md)
 ```
 
@@ -39,6 +40,7 @@ Is an identity for GOG players planned (e.g. the GOG Galaxy account id)? Until t
 **KCDC on GOG: workaround for the startup crash (KCDC 1.7.1 + KCD2 1.5.6.0 GOG)**
 The client crashes right after "Game module loaded" because 3 of ~980 signatures do not exist in the GOG build. The attached script builds KCDCClient_gog.dll from YOUR OWN KCDCClient.dll (SHA-256 checked) and points KCDC_launcher.json at it. The original file stays untouched, so the updater keeps saying "up-to-date". No modified binaries are shared.
 Status: game starts, main menu, connects, loads server resources. Note: servers that require a Steam ID will still kick GOG players - that is each server's rule.
+Tested on ONE PC only (Windows 11) - results on other systems unknown. KCDC belongs to its authors; this repo contains none of its files.
 Unofficial, use at your own risk. Please report whether playing works for you (and say you are on GOG when you report bugs).
 Readme (EN/DE), installer and tools: https://github.com/Errorism1/KCDC-GOG-Fix
 ```

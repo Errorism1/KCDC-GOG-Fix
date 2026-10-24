@@ -11,8 +11,13 @@ Kingdom Come: Deliverance II 1.5.6.0. Without it the client crashes right after 
 > players without one has not been confirmed yet. Please report your results (see
 > [Reporting](#reporting-results)).
 >
+> **Tested on one PC only** (Windows 11, the build below). It may behave differently on your system or with another GOG build.
+>
 > This is not made by or affiliated with the KCDC / MafiaHub developers. Use at your own risk. When the
 > developers ship official GOG support, switch back to their version and delete this workaround.
+>
+> KCDC belongs to its authors; this repository contains none of its files. If the KCDC developers prefer that this
+> repository is changed or removed, it will be.
 
 ## The problem
 

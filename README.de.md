@@ -12,8 +12,13 @@ Spielmoduls ab.
 > Server, der Spieler ohne Steam-ID zulässt, ist noch nicht bestätigt. Bitte meldet eure Ergebnisse
 > (siehe [Rückmeldung](#rückmeldung)).
 >
+> **Nur auf einem PC getestet** (Windows 11, Build siehe unten). Auf anderen Systemen oder mit anderem GOG-Build kann es anders sein.
+>
 > Nicht von den KCDC-/MafiaHub-Entwicklern und nicht mit ihnen verbunden. Nutzung auf eigene Gefahr. Sobald die
 > Entwickler offiziell GOG unterstützen, auf deren Version wechseln und diesen Workaround entfernen.
+>
+> KCDC gehört seinen Autoren; dieses Repository enthält keine Dateien davon. Falls die KCDC-Entwickler wünschen, dass
+> dieses Repository geändert oder entfernt wird, geschieht das.
 
 ## Das Problem
 
